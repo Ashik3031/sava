@@ -18,11 +18,9 @@ const Home = () => {
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767444765/PHOTO-2024-12-06-11-51-09_2_snlbmz.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767444765/PHOTO-2024-12-06-11-50-56_trxltz.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445084/healthy-beautiful-manicure-manicurist_scjqxj.jpg',
-                'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445084/healthy-beautiful-manicure-manicurist_scjqxj.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445399/2149820419_oecx6o.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445445/2149820442_kwb2sw.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445654/2366_m3nllc.jpg',
-                'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445654/2914_p2lfc5.jpg',
             ]
         },
         {
@@ -34,8 +32,6 @@ const Home = () => {
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767678824/9331_g9kuum.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767679081/6366_pwhpgq.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767679082/261548_jfzduz.jpg',
-                'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767679082/28057_phxikp.jpg',
-                'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767679082/28057_phxikp.jpg',
             ]
         },
         {
@@ -46,9 +42,7 @@ const Home = () => {
                 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=400&q=80',
                 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400&q=80',
                 'https://images.unsplash.com/photo-1559599101-f09722fb4948?w=400&q=80',
-                'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400&q=80',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767445654/2914_p2lfc5.jpg',
-                'https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=400&q=80',
             ]
         },
         {
@@ -60,8 +54,6 @@ const Home = () => {
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767679603/8848_hxv27g.jpg',
                 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1767679603/2149513246_std35v.jpg',
                 'https://images.unsplash.com/photo-1552693673-1bf958298935?w=400&q=80',
-                'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80',
-                'https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=400&q=80',
             ]
         }
     ];
@@ -82,7 +74,7 @@ const Home = () => {
         <div className="min-h-screen bg-white">
             {/* Pinterest-Inspired Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-30 pb-20 px-6">
-                {/* Masonry Grid Background */}
+                {/* Masonry Grid Background - 3 Top, 3 Bottom */}
                 <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="wait">
                         <motion.div
@@ -91,24 +83,51 @@ const Home = () => {
                             animate={{ opacity: 0.6 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-4 p-8 h-full"
+                            className="flex flex-col justify-start px-8 pb-8 pt-24 h-full gap-4"
                         >
-                            {serviceData[currentService].images.map((img, index) => (
-                                <motion.div
-                                    key={`${currentService}-${index}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className={`${index % 3 === 0 ? 'mt-12' : index % 2 === 0 ? 'mt-6' : ''
-                                        }`}
-                                >
-                                    <img
-                                        src={img}
-                                        alt=""
-                                        className="w-full h-48 md:h-64 object-cover rounded-2xl"
-                                    />
-                                </motion.div>
-                            ))}
+                            {/* Top Row - 3 images */}
+                            <div className="grid grid-cols-3 gap-6">
+                                {serviceData[currentService].images.slice(0, 3).map((img, index) => (
+                                    <motion.div
+                                        key={`${currentService}-top-${index}`}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className={`${index === 0 ? 'mt-8 md:mt-16' :
+                                            index === 1 ? 'mt-0' :
+                                                'mt-12 md:mt-20'
+                                            }`}
+                                    >
+                                        <img
+                                            src={img}
+                                            alt=""
+                                            className="w-full h-40 md:h-52 lg:h-64 object-cover rounded-2xl"
+                                        />
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Bottom Row - 3 images */}
+                            <div className="grid grid-cols-3 gap-6">
+                                {serviceData[currentService].images.slice(3, 6).map((img, index) => (
+                                    <motion.div
+                                        key={`${currentService}-bottom-${index}`}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: (index + 3) * 0.1 }}
+                                        className={`${index === 0 ? 'mt-4 md:mt-8' :
+                                            index === 1 ? 'mt-12 md:mt-16' :
+                                                'mt-0'
+                                            }`}
+                                    >
+                                        <img
+                                            src={img}
+                                            alt=""
+                                            className="w-full h-40 md:h-52 lg:h-64 object-cover rounded-2xl"
+                                        />
+                                    </motion.div>
+                                ))}
+                            </div>
                         </motion.div>
                     </AnimatePresence>
                 </div>
@@ -223,7 +242,6 @@ const Home = () => {
             </div>
 
             {/* Minimal Services Section */}
-            {/* Minimal Services Section - Redesigned */}
             <section className="py-24 px-6 bg-white">
                 <div className="container-custom">
                     <AnimatedSection className="mb-16">
@@ -372,6 +390,4 @@ const Home = () => {
     );
 };
 
-
 export default Home;
-
