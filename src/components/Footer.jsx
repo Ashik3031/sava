@@ -72,7 +72,7 @@ const Footer = () => {
                     <div className="space-y-6 text-right md:text-left">
                         <div className="flex space-x-6 justify-end md:justify-start">
                             <a href="https://instagram.com" className="text-xl text-brushed-gold hover:text-soft-ivory transition-colors"><FaInstagram /></a>
-                            <a href="https://wa.me/971XXXXXXXXX" className="text-xl text-brushed-gold hover:text-soft-ivory transition-colors"><FaWhatsapp /></a>
+                            <a href="https://wa.me/971567870072" className="text-xl text-brushed-gold hover:text-soft-ivory transition-colors"><FaWhatsapp /></a>
                         </div>
                         <div className="text-sm text-brushed-gold/60 font-light tracking-wider space-y-2">
                             <p>Abu Dhabi, UAE</p>
