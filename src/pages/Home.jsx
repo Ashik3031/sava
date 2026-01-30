@@ -71,132 +71,82 @@ const Home = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white">
-            {/* Pinterest-Inspired Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-30 pb-20 px-6">
-                {/* Masonry Grid Background - 3 Top, 3 Bottom */}
+        <div className="min-h-screen bg-brown-bg">
+            {/* Hero Section with Background Video */}
+            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+                {/* Background Video */}
                 <div className="absolute inset-0 z-0">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentService}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.6 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 1 }}
-                            className="flex flex-col justify-start px-8 pb-8 pt-24 h-full gap-4"
-                        >
-                            {/* Top Row - 3 images */}
-                            <div className="grid grid-cols-3 gap-6">
-                                {serviceData[currentService].images.slice(0, 3).map((img, index) => (
-                                    <motion.div
-                                        key={`${currentService}-top-${index}`}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className={`${index === 0 ? 'mt-8 md:mt-16' :
-                                            index === 1 ? 'mt-0' :
-                                                'mt-12 md:mt-20'
-                                            }`}
-                                    >
-                                        <img
-                                            src={img}
-                                            alt=""
-                                            className="w-full h-40 md:h-52 lg:h-64 object-cover rounded-2xl"
-                                        />
-                                    </motion.div>
-                                ))}
-                            </div>
-
-                            {/* Bottom Row - 3 images */}
-                            <div className="grid grid-cols-3 gap-6">
-                                {serviceData[currentService].images.slice(3, 6).map((img, index) => (
-                                    <motion.div
-                                        key={`${currentService}-bottom-${index}`}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: (index + 3) * 0.1 }}
-                                        className={`${index === 0 ? 'mt-4 md:mt-8' :
-                                            index === 1 ? 'mt-12 md:mt-16' :
-                                                'mt-0'
-                                            }`}
-                                    >
-                                        <img
-                                            src={img}
-                                            alt=""
-                                            className="w-full h-40 md:h-52 lg:h-64 object-cover rounded-2xl"
-                                        />
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover opacity-60"
+                    >
+                        <source src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769770329/2471063_Inside_Lower_Antelope_Canyon_1920x1080_oue3dq.mov" type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 bg-brown-bg/40" />
                 </div>
 
-                {/* Centered Content */}
-                <div className="relative z-10 text-center max-w-4xl">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-deep-mocha mb-8"
-                    >
-                        Get your next
-                    </motion.h1>
-
-                    <div className="h-24 md:h-32 mb-8">
-                        <AnimatePresence mode="wait">
-                            <motion.h2
-                                key={currentService}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brushed-gold"
-                            >
-                                {serviceData[currentService].text}
-                            </motion.h2>
-                        </AnimatePresence>
-                    </div>
-
-                    {/* Dot Indicators */}
-                    <div className="flex justify-center space-x-2 mb-12">
-                        {serviceData.map((_, index) => (
-                            <div
-                                key={index}
-                                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentService ? 'bg-brushed-gold w-8' : 'bg-gray-300'
-                                    }`}
-                            />
-                        ))}
-                    </div>
-
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                    >
-                        <Button
-                            size="large"
-                            onClick={() => openFreshaBooking()}
-                            className="rounded-full px-12 py-4 text-lg shadow-lg hover:shadow-xl"
+                {/* Content */}
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
+                    <div className="max-w-2xl">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-6xl md:text-7xl lg:text-8xl font-serif font-medium text-brushed-gold mb-2 leading-tight"
                         >
-                            Book Your Appointment
-                        </Button>
-                    </motion.div>
+                            Satisfaction.
+                        </motion.h1>
+
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-6xl md:text-7xl lg:text-8xl font-serif font-medium text-brushed-gold mb-2 leading-tight"
+                        >
+                            Serenity.
+                        </motion.h2>
+
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="text-6xl md:text-7xl lg:text-8xl font-serif font-medium text-brushed-gold mb-16 leading-tight"
+                        >
+                            Style.
+                        </motion.h2>
+
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.6 }}
+                        >
+                            <Button
+                                size="large"
+                                onClick={() => openFreshaBooking()}
+                                className="rounded-none border border-brushed-gold bg-transparent text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-12 py-4 text-sm tracking-[0.2em] uppercase transition-all duration-300 min-w-[280px]"
+                            >
+                                BOOK APPOINTMENT
+                            </Button>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
             {/* Welcome Section */}
-            <section className="py-24 px-6">
+            <section className="py-24 px-6 bg-brown-bg">
                 <div className="container-custom max-w-4xl text-center">
                     <AnimatedSection>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-deep-mocha tracking-widest mb-12">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-brushed-gold tracking-widest mb-12">
                             WELCOME TO SAVÁ
                         </h2>
 
-                        <p className="text-sm md:text-base italic text-gray-500 tracking-[0.2em] mb-12">
+                        <p className="text-sm md:text-base italic text-brushed-gold/70 tracking-[0.2em] mb-12">
                             Satisfaction. Serenity. Style.
                         </p>
 
-                        <div className="space-y-8 text-deep-mocha/80 leading-relaxed tracking-wide text-sm md:text-base max-w-3xl mx-auto mb-16">
+                        <div className="space-y-8 text-brushed-gold/80 leading-relaxed tracking-wide text-sm md:text-base max-w-3xl mx-auto mb-16">
                             <p>
                                 At SAVÁ, we believe beauty is an experience that goes beyond the surface. It's an invitation to slow down, reconnect, and indulge in the simple luxury of self-care.
                             </p>
@@ -209,14 +159,14 @@ const Home = () => {
                         </div>
 
                         <div className="mb-16">
-                            <p className="text-xs tracking-[0.4em] uppercase font-bold text-deep-mocha/60">
+                            <p className="text-xs tracking-[0.4em] uppercase font-bold text-brushed-gold/60">
                                 NOW OPEN
                             </p>
                         </div>
 
                         <Button
                             onClick={() => openFreshaBooking()}
-                            className="rounded-none bg-gray-500 hover:bg-gray-600 text-white px-12 py-4 tracking-[0.2em] uppercase text-sm transition-all duration-300"
+                            className="rounded-none border-2 border-brushed-gold bg-transparent text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-12 py-4 tracking-[0.2em] uppercase text-sm transition-all duration-300"
                         >
                             BOOK NOW
                         </Button>
@@ -231,10 +181,10 @@ const Home = () => {
                     backgroundImage: 'url("https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1920&q=80")'
                 }}
             >
-                <div className="absolute inset-0 bg-black/20" /> {/* Subtle text contrast overlay */}
+                <div className="absolute inset-0 bg-brown-bg/60" />
                 <div className="relative z-10 h-full flex items-center justify-center">
                     <AnimatedSection>
-                        <p className="text-3xl md:text-5xl font-serif text-white italic tracking-wider opacity-90">
+                        <p className="text-3xl md:text-5xl font-serif text-brushed-gold italic tracking-wider opacity-90">
                             "Where detail meets serenity."
                         </p>
                     </AnimatedSection>
@@ -242,10 +192,10 @@ const Home = () => {
             </div>
 
             {/* Minimal Services Section */}
-            <section className="py-24 px-6 bg-white">
+            <section className="py-24 px-6 bg-brown-bg">
                 <div className="container-custom">
                     <AnimatedSection className="mb-16">
-                        <h2 className="text-sm tracking-[0.2em] font-light text-gray-500 uppercase mb-4">
+                        <h2 className="text-sm tracking-[0.2em] font-light text-brushed-gold/70 uppercase mb-4">
                             OUR SERVICES
                         </h2>
                     </AnimatedSection>
@@ -258,17 +208,17 @@ const Home = () => {
                                 whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-soft-ivory">
+                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-brown-bg/40 border border-brushed-gold/20">
                                     <img
                                         src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80"
                                         alt="Nails Services"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
                                     />
                                 </div>
-                                <h3 className="text-2xl font-serif italic text-deep-mocha mb-3 group-hover:text-brushed-gold transition-colors">
+                                <h3 className="text-2xl font-serif italic text-brushed-gold mb-3 group-hover:text-brushed-gold/80 transition-colors">
                                     Nails
                                 </h3>
-                                <p className="text-sm text-gray-500 leading-relaxed font-light">
+                                <p className="text-sm text-brushed-gold/70 leading-relaxed font-light">
                                     Healthy nails are at the heart of everything we do. Our treatments focus not just on beauty but on long-term health, using only vegan and cruelty-free products.
                                 </p>
                             </motion.div>
@@ -281,20 +231,20 @@ const Home = () => {
                                 whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-soft-ivory relative">
+                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-brown-bg/40 border border-brushed-gold/20 relative">
                                     <img
                                         src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80"
                                         alt="Beauty Services"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[20%]"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 grayscale-[20%]"
                                     />
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <span className="bg-white/90 backdrop-blur px-4 py-1 text-xs tracking-widest uppercase">Coming Soon</span>
+                                    <div className="absolute inset-0 flex items-center justify-center bg-brown-bg/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="bg-brushed-gold/90 backdrop-blur px-4 py-1 text-xs tracking-widest uppercase text-brown-bg">Coming Soon</span>
                                     </div>
                                 </div>
-                                <h3 className="text-2xl font-serif italic text-deep-mocha mb-3 group-hover:text-brushed-gold transition-colors">
+                                <h3 className="text-2xl font-serif italic text-brushed-gold mb-3 group-hover:text-brushed-gold/80 transition-colors">
                                     Beauty
                                 </h3>
-                                <p className="text-sm text-gray-500 leading-relaxed font-light">
+                                <p className="text-sm text-brushed-gold/70 leading-relaxed font-light">
                                     Our beauty services are designed to nurture your skin and body with calm, conscious care. From soothing facials to restorative massages, purely for your wellness.
                                 </p>
                             </motion.div>
@@ -307,17 +257,17 @@ const Home = () => {
                                 whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-soft-ivory">
+                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-brown-bg/40 border border-brushed-gold/20">
                                     <img
                                         src="https://res.cloudinary.com/dxq0nrirt/image/upload/v1767434143/high-angle-female-clinician-doing-eyebrow-treatment-woman_seeplu.jpg"
                                         alt="Lashes & Brows"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
                                     />
                                 </div>
-                                <h3 className="text-2xl font-serif italic text-deep-mocha mb-3 group-hover:text-brushed-gold transition-colors">
+                                <h3 className="text-2xl font-serif italic text-brushed-gold mb-3 group-hover:text-brushed-gold/80 transition-colors">
                                     Lashes & Brows
                                 </h3>
-                                <p className="text-sm text-gray-500 leading-relaxed font-light">
+                                <p className="text-sm text-brushed-gold/70 leading-relaxed font-light">
                                     Beautiful brows and lifted lashes crafted with care. We focus on enhancing your natural features through gentle techniques and thoughtful formulas.
                                 </p>
                             </motion.div>
@@ -327,7 +277,7 @@ const Home = () => {
                     <AnimatedSection className="text-center mt-20">
                         <Link
                             to="/services"
-                            className="inline-block border border-deep-mocha bg-deep-mocha text-white px-10 py-3 text-sm tracking-[0.2em] font-medium hover:bg-transparent hover:text-deep-mocha transition-all duration-300"
+                            className="inline-block border-2 border-brushed-gold bg-transparent text-brushed-gold px-10 py-3 text-sm tracking-[0.2em] font-medium hover:bg-brushed-gold hover:text-brown-bg transition-all duration-300"
                         >
                             VIEW ALL SERVICES
                         </Link>
@@ -336,10 +286,10 @@ const Home = () => {
             </section>
 
             {/* Minimal Why Choose Section */}
-            <section className="py-24 px-6 bg-soft-ivory">
+            <section className="py-24 px-6 bg-brown-bg/80">
                 <div className="container-custom max-w-5xl">
                     <AnimatedSection className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-deep-mocha">
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold">
                             Why SAVÁ
                         </h2>
                     </AnimatedSection>
@@ -355,10 +305,10 @@ const Home = () => {
                                     <div className="text-5xl text-brushed-gold mb-4 flex justify-center">
                                         {item.icon}
                                     </div>
-                                    <h3 className="text-xl font-serif font-semibold text-deep-mocha mb-2">
+                                    <h3 className="text-xl font-serif font-semibold text-brushed-gold mb-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-600">{item.desc}</p>
+                                    <p className="text-brushed-gold/70">{item.desc}</p>
                                 </div>
                             </AnimatedSection>
                         ))}
@@ -367,19 +317,19 @@ const Home = () => {
             </section>
 
             {/* Simple CTA Section */}
-            <section className="py-24 px-6">
+            <section className="py-24 px-6 bg-brown-bg">
                 <div className="container-custom text-center max-w-3xl">
                     <AnimatedSection>
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-deep-mocha mb-6">
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold mb-6">
                             Ready to experience SAVÁ?
                         </h2>
-                        <p className="text-lg text-gray-600 mb-8">
+                        <p className="text-lg text-brushed-gold/70 mb-8">
                             Book your appointment today and discover the difference
                         </p>
                         <Button
                             size="large"
                             onClick={() => openFreshaBooking()}
-                            className="rounded-full px-12"
+                            className="rounded-none border-2 border-brushed-gold bg-transparent text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-12 transition-all duration-300"
                         >
                             Book Now
                         </Button>

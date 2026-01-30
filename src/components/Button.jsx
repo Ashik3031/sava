@@ -13,9 +13,9 @@ const Button = ({
     const baseClasses = 'inline-block text-center font-medium rounded-full transition-all duration-300 cursor-pointer';
 
     const variants = {
-        primary: 'bg-deep-mocha text-white hover:bg-brushed-gold hover:shadow-lg active:scale-95',
-        secondary: 'border-2 border-brushed-gold text-brushed-gold hover:bg-brushed-gold hover:text-white',
-        ghost: 'text-brushed-gold hover:bg-lavender-mist/30',
+        primary: 'bg-brushed-gold text-brown-bg hover:bg-soft-ivory hover:text-deep-mocha shadow-lg hover:shadow-gold-glow',
+        secondary: 'border-2 border-brushed-gold text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg',
+        ghost: 'text-brushed-gold hover:bg-brushed-gold/10',
     };
 
     const sizes = {

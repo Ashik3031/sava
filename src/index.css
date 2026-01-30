@@ -5,14 +5,15 @@
 @theme {
   --color-lavender-mist: #DCCDE1;
   --color-soft-ivory: #F2E9DA;
-  --color-brushed-gold: #C6A15B;
+  --color-brushed-gold: #D4AF37;
   --color-deep-mocha: #4C3A32;
+  --color-brown-bg: #5C4033;
 
   --font-family-serif: 'Playfair Display', serif;
   --font-family-sans: 'Inter', sans-serif;
 
   --shadow-soft: 0 4px 20px rgba(76, 58, 50, 0.08);
-  --shadow-gold-glow: 0 0 20px rgba(198, 161, 91, 0.3);
+  --shadow-gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 html {
@@ -21,8 +22,8 @@ html {
 
 body {
   font-family: var(--font-family-sans);
-  color: var(--color-deep-mocha);
-  background-color: white;
+  color: var(--color-brushed-gold);
+  background-color: var(--color-brown-bg);
 }
 
 h1,

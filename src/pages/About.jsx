@@ -36,22 +36,22 @@ const About = () => {
             />
 
             {/* Our Story Section */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-brown-bg">
                 <div className="container-custom">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <AnimatedSection>
                             <img
                                 src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80"
                                 alt="SAVÁ Salon Interior"
-                                className="rounded-lg shadow-soft w-full h-[500px] object-cover"
+                                className="rounded-lg shadow-soft w-full h-[500px] object-cover opacity-90 border border-brushed-gold/20"
                             />
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.2}>
-                            <h2 className="text-4xl md:text-5xl font-serif font-bold text-deep-mocha mb-6">
+                            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold mb-6">
                                 Our Story
                             </h2>
-                            <div className="space-y-4 text-gray-700 leading-relaxed">
+                            <div className="space-y-4 text-brushed-gold/80 leading-relaxed">
                                 <p>
                                     SAVÁ Ladies Beauty Salon is a high-end beauty destination offering personalized
                                     beauty experiences in an atmosphere of tranquility and elegance. Our name evokes
@@ -63,9 +63,9 @@ const About = () => {
                                     is crafted with intention, every detail designed with care.
                                 </p>
                                 <p>
-                                    Our philosophy is built on three pillars: <strong className="text-brushed-gold">Satisfaction</strong> through
-                                    personalized treatments, <strong className="text-brushed-gold">Serenity</strong> in our elegant interiors
-                                    and exceptional service, and <strong className="text-brushed-gold">Style</strong> that reflects your unique beauty.
+                                    Our philosophy is built on three pillars: <strong className="text-white">Satisfaction</strong> through
+                                    personalized treatments, <strong className="text-white">Serenity</strong> in our elegant interiors
+                                    and exceptional service, and <strong className="text-white">Style</strong> that reflects your unique beauty.
                                 </p>
                             </div>
                         </AnimatedSection>
@@ -74,15 +74,15 @@ const About = () => {
             </section>
 
             {/* Mission & Vision Section */}
-            <section className="section-padding bg-soft-ivory">
+            <section className="section-padding bg-brown-bg/80">
                 <div className="container-custom">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <AnimatedSection>
-                            <div className="bg-white p-8 md:p-10 rounded-lg shadow-soft h-full">
-                                <h3 className="text-3xl font-serif font-bold text-deep-mocha mb-4">
+                            <div className="bg-brown-bg border border-brushed-gold/20 p-8 md:p-10 rounded-lg shadow-soft h-full">
+                                <h3 className="text-3xl font-serif font-bold text-brushed-gold mb-4">
                                     Our Vision
                                 </h3>
-                                <p className="text-gray-700 leading-relaxed">
+                                <p className="text-brushed-gold/80 leading-relaxed">
                                     To deliver satisfaction through personalized treatments, elegant interiors,
                                     exceptional service, and a sensory experience that inspires repeat visits and
                                     brand loyalty. We strive to be the sanctuary where women rediscover their beauty
@@ -92,11 +92,11 @@ const About = () => {
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.15}>
-                            <div className="bg-white p-8 md:p-10 rounded-lg shadow-soft h-full">
-                                <h3 className="text-3xl font-serif font-bold text-deep-mocha mb-4">
+                            <div className="bg-brown-bg border border-brushed-gold/20 p-8 md:p-10 rounded-lg shadow-soft h-full">
+                                <h3 className="text-3xl font-serif font-bold text-brushed-gold mb-4">
                                     Our Mission
                                 </h3>
-                                <p className="text-gray-700 leading-relaxed">
+                                <p className="text-brushed-gold/80 leading-relaxed">
                                     To be Abu Dhabi's most cherished beauty destination, offering curated, thoughtful
                                     luxury to women who seek more than just beauty — they seek serenity. We are committed
                                     to creating experiences that transform not just appearances, but spirits.
@@ -108,13 +108,13 @@ const About = () => {
             </section>
 
             {/* Core Values Section */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-brown-bg">
                 <div className="container-custom">
                     <AnimatedSection className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-deep-mocha mb-4">
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold mb-4">
                             Our Core Values
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-lg text-brushed-gold/70 max-w-2xl mx-auto">
                             The principles that guide everything we do
                         </p>
                     </AnimatedSection>
@@ -122,13 +122,13 @@ const About = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {coreValues.map((value, index) => (
                             <AnimatedSection key={index} delay={index * 0.1}>
-                                <div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-lavender-mist/30 transition-colors duration-300">
+                                <div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-brushed-gold/5 transition-colors duration-300 border border-transparent hover:border-brushed-gold/20">
                                     <FaCheckCircle className="text-brushed-gold text-2xl flex-shrink-0 mt-1" />
                                     <div>
-                                        <h4 className="text-xl font-serif font-semibold text-deep-mocha mb-2">
+                                        <h4 className="text-xl font-serif font-semibold text-brushed-gold mb-2">
                                             {value.title}
                                         </h4>
-                                        <p className="text-gray-600 leading-relaxed">
+                                        <p className="text-brushed-gold/80 leading-relaxed">
                                             {value.description}
                                         </p>
                                     </div>
@@ -140,11 +140,11 @@ const About = () => {
             </section>
 
             {/* What Makes SAVÁ Special */}
-            <section className="section-padding bg-lavender-mist">
+            <section className="section-padding bg-brown-bg/90">
                 <div className="container-custom">
                     <AnimatedSection>
                         <div className="max-w-4xl mx-auto text-center">
-                            <blockquote className="text-2xl md:text-3xl font-serif italic text-deep-mocha leading-relaxed">
+                            <blockquote className="text-2xl md:text-3xl font-serif italic text-brushed-gold leading-relaxed">
                                 "SAVÁ Ladies Beauty Salon is where women come not just to be transformed —
                                 but to be understood, fulfilled, and cared for. We don't just offer services —
                                 we create beauty with intention and heart."
@@ -155,17 +155,21 @@ const About = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-brown-bg">
                 <div className="container-custom">
                     <AnimatedSection className="text-center">
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-deep-mocha mb-6">
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold mb-6">
                             Experience the SAVÁ Difference
                         </h2>
-                        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                        <p className="text-lg text-brushed-gold/70 mb-8 max-w-2xl mx-auto">
                             Join us and discover a beauty experience that's truly personal,
                             luxurious, and transformative.
                         </p>
-                        <Button size="large" onClick={() => openFreshaBooking()}>
+                        <Button
+                            size="large"
+                            onClick={() => openFreshaBooking()}
+                            className="rounded-none border-2 border-brushed-gold bg-transparent text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-12 transition-all duration-300"
+                        >
                             Book Your Appointment
                         </Button>
                     </AnimatedSection>
