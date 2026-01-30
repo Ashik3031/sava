@@ -286,18 +286,16 @@ const Home = () => {
         alt="Hair Services"
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[20%]"
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <span className="bg-white/90 backdrop-blur px-4 py-1 text-xs tracking-widest uppercase">
-          Coming Soon
-        </span>
-      </div>
+     <div className="absolute inset-0 flex items-center justify-center bg-brown-bg/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="bg-brushed-gold/90 backdrop-blur px-4 py-1 text-xs tracking-widest uppercase text-brown-bg">Coming Soon</span>
+                                    </div>
     </div>
 
-    <h3 className="text-2xl font-serif italic text-deep-mocha mb-3 group-hover:text-brushed-gold transition-colors">
+    <h3 className="text-2xl font-serif italic text-brushed-gold mb-3 group-hover:text-brushed-gold/80 transition-colors">
       Hair
     </h3>
 
-    <p className="text-sm text-gray-500 leading-relaxed font-light">
+    <p className="text-sm text-brushed-gold/70 leading-relaxed font-light">
       Signature hair rituals are on the way — from nourishing treatments to elegant styling, designed to complement your SAVÁ experience.
     </p>
   </motion.div>

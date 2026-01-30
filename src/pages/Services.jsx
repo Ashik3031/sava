@@ -9,147 +9,76 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 const Services = () => {
   const [openCategory, setOpenCategory] = useState(null);
 
-    return (
-        <div className="min-h-screen bg-brown-bg pt-32 pb-20">
-            {/* Header / Hero Section */}
-            <section className="px-6 mb-24">
-                <div className="container-custom text-center max-w-2xl mx-auto">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-sm tracking-[0.3em] font-light text-brushed-gold/70 uppercase mb-6"
-                    >
-                        SERVICES
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-2xl md:text-3xl font-serif text-brushed-gold leading-relaxed"
-                    >
-                        Luxury nail, beauty, and wellness treatments designed for modern lifestyles.
-                    </motion.p>
-                    <div className="w-12 h-[1px] bg-brushed-gold mx-auto mt-12 opacity-50"></div>
-                </div>
-            </section>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-            {/* Services Content - Editorial List Style */}
-            <div className="container-custom max-w-3xl px-6">
-                <div className="space-y-24">
-                    {serviceCategories.map((category, index) => (
-                        <AnimatedSection key={category.id} delay={index * 0.1}>
-                            <div className="mb-4">
-                                <h2 className="text-xl md:text-2xl font-serif font-medium text-brushed-gold mb-2 tracking-wide">
-                                    {category.title}
-                                </h2>
-                                {category.description && (
-                                    <p className="text-brushed-gold/60 font-light text-sm tracking-wide mb-8">
-                                        {category.description}
-                                    </p>
-                                )}
-                            </div>
+  const toggleCategory = (id) => {
+    setOpenCategory((prev) => (prev === id ? null : id));
+  };
 
-                            {/* Handle nested subsections if present */}
-                            {category.items[0]?.subtitle ? (
-                                <div className="space-y-12">
-                                    {category.items.map((sub, subIndex) => (
-                                        <div key={subIndex}>
-                                            <h3 className="text-lg font-medium text-brushed-gold mb-6 italic">
-                                                {sub.subtitle}
-                                            </h3>
-                                            <div className="space-y-6">
-                                                {sub.items.map((item, i) => (
-                                                    <div key={i} className="flex justify-between items-baseline group">
-                                                        <span className="text-brushed-gold/90 font-light group-hover:text-brushed-gold transition-colors">
-                                                            {item.name}
-                                                        </span>
-                                                        <span className="text-brushed-gold/60 font-light text-sm ml-4">
-                                                            {item.price}
-                                                        </span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="space-y-8">
-                                    {category.items.map((item, itemIndex) => (
-                                        <div key={itemIndex} className="group">
-                                            <div className="flex justify-between items-baseline mb-1">
-                                                <h3 className="text-brushed-gold/90 font-light text-base group-hover:text-brushed-gold transition-colors">
-                                                    {item.name}
-                                                </h3>
-                                                <span className="text-brushed-gold/60 font-light text-sm ml-8 whitespace-nowrap">
-                                                    {item.price}
-                                                </span>
-                                            </div>
-                                            {item.description && (
-                                                <p className="text-brushed-gold/50 text-xs font-light max-w-md leading-relaxed">
-                                                    {item.description}
-                                                </p>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </AnimatedSection>
-                    ))}
-                </div>
+  return (
+    <div className="min-h-screen bg-brown-bg pt-32 pb-20">
+      {/* Header / Hero */}
+      <section className="px-6 mb-20">
+        <div className="container-custom text-center max-w-3xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-sm tracking-[0.35em] font-light text-brushed-gold/70 uppercase mb-6"
+          >
+            SERVICES
+          </motion.h1>
 
-                {/* Booking CTA Section */}
-                <AnimatedSection className="mt-32 text-center">
-                    <Button
-                        size="large"
-                        onClick={() => openFreshaBooking()}
-                        className="rounded-none border-2 border-brushed-gold bg-transparent text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-16 py-4 tracking-[0.2em] uppercase text-sm w-full md:w-auto shadow-none transition-all duration-500"
-                    >
-                        BOOK NOW
-                    </Button>
-                    <p className="mt-6 text-xs text-brushed-gold/40 tracking-widest uppercase">
-                        Appointments subject to availability
-                    </p>
-                </AnimatedSection>
-            </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-2xl md:text-4xl font-serif text-brushed-gold leading-relaxed"
+          >
+            Luxury nail, beauty, and wellness treatments designed for modern lifestyles.
+          </motion.p>
+
+          <div className="w-16 h-[1px] bg-brushed-gold mx-auto mt-10 opacity-40" />
         </div>
       </section>
 
-      {/* Accordion categories */}
-      <div className="container-custom max-w-3xl px-6">
-        <div className="space-y-10">
+      {/* Accordion Categories */}
+      <div className="container-custom max-w-4xl px-6">
+        <div className="space-y-3">
           {serviceCategories.map((category, index) => {
             const isOpen = openCategory === category.id;
 
             return (
-              <AnimatedSection key={category.id} delay={index * 0.08}>
-                <div className="border-t border-black/10">
-                  {/* CATEGORY HEADER ROW */}
+              <AnimatedSection key={category.id} delay={index * 0.06}>
+                <div className="border-t border-brushed-gold/20">
+                  {/* Header Row */}
                   <button
                     onClick={() => toggleCategory(category.id)}
-                    className="w-full flex items-center justify-between py-6 text-left group"
+                    className="w-full flex items-center justify-between py-7 text-left group"
                   >
-                    <div>
-                     <h2 className="text-lg md:text-xl tracking-[0.3em] uppercase font-light text-deep-mocha">
-
+                    <div className="pr-8">
+                      <h2 className="text-lg md:text-2xl tracking-[0.25em] uppercase font-light text-brushed-gold">
                         {category.title}
                       </h2>
-                      {/* optional small description under title */}
+
                       {category.description && (
-                        <p className="mt-2 text-xs text-gray-400 font-light max-w-2xl leading-relaxed">
+                        <p className="mt-3 text-sm md:text-base text-brushed-gold/60 font-light leading-relaxed max-w-3xl">
                           {category.description}
                         </p>
                       )}
                     </div>
 
+                    {/* Plus / Minus */}
                     <span
-                      className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center
-                      group-hover:border-brushed-gold group-hover:text-brushed-gold transition-all"
+                      className="w-11 h-11 rounded-full border border-brushed-gold/40 flex items-center justify-center
+                      text-brushed-gold/80 group-hover:border-brushed-gold group-hover:text-brushed-gold transition-all"
                     >
-                      {isOpen ? <FiMinus /> : <FiPlus />}
+                      {isOpen ? <FiMinus size={18} /> : <FiPlus size={18} />}
                     </span>
                   </button>
 
-                  {/* CATEGORY BODY */}
+                  {/* Body */}
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
@@ -159,34 +88,35 @@ const Services = () => {
                         transition={{ duration: 0.35 }}
                         className="overflow-hidden"
                       >
-                        <div className="pb-8">
-                          {/* NESTED subtitles (Brows/Lashes etc.) */}
+                        <div className="pb-10 pt-1">
+                          {/* Nested sections (Brow Bar, Lash Bar...) */}
                           {category.items[0]?.subtitle ? (
-                            <div className="space-y-10 pt-2">
+                            <div className="space-y-10">
                               {category.items.map((sub, subIndex) => (
                                 <div key={subIndex}>
-                                  <h3 className="text-sm tracking-widest uppercase text-gray-500 mb-4">
+                                  <h3 className="text-sm md:text-base tracking-[0.25em] uppercase text-brushed-gold/70 mb-5">
                                     {sub.subtitle}
                                   </h3>
 
-                                  <div className="space-y-4">
+                                  <div className="space-y-5">
                                     {sub.items.map((item, i) => (
                                       <div
                                         key={i}
-                                        className="flex justify-between items-start border-b border-black/5 pb-3"
+                                        className="flex justify-between gap-8 border-b border-brushed-gold/10 pb-4"
                                       >
-                                        <div className="pr-6">
-                                          <p className="text-gray-800 font-light">
+                                        <div className="min-w-0">
+                                          <p className="text-base md:text-lg text-brushed-gold/90 font-light">
                                             {item.name}
                                           </p>
+
                                           {item.description && (
-                                            <p className="mt-1 text-xs text-gray-400 font-light max-w-md leading-relaxed">
+                                            <p className="mt-2 text-sm text-brushed-gold/55 font-light leading-relaxed max-w-2xl">
                                               {item.description}
                                             </p>
                                           )}
                                         </div>
 
-                                        <span className="text-gray-500 font-light text-sm whitespace-nowrap">
+                                        <span className="text-brushed-gold/70 font-light text-base md:text-lg whitespace-nowrap">
                                           {item.price}
                                         </span>
                                       </div>
@@ -196,26 +126,26 @@ const Services = () => {
                               ))}
                             </div>
                           ) : (
-                            /* NORMAL items */
-                            <div className="space-y-4 pt-2">
+                            /* Normal items */
+                            <div className="space-y-5">
                               {category.items.map((item, i) => (
                                 <div
                                   key={i}
-                                  className="flex justify-between items-start border-b border-black/5 pb-3"
+                                  className="flex justify-between gap-8 border-b border-brushed-gold/10 pb-4"
                                 >
-                                  <div className="pr-6">
-                                   <p className="text-base md:text-lg text-gray-800 font-light">
-
+                                  <div className="min-w-0">
+                                    <p className="text-base md:text-lg text-brushed-gold/90 font-light">
                                       {item.name}
                                     </p>
+
                                     {item.description && (
-                                      <p className="mt-1 text-xs text-gray-400 font-light max-w-md leading-relaxed">
+                                      <p className="mt-2 text-sm text-brushed-gold/55 font-light leading-relaxed max-w-2xl">
                                         {item.description}
                                       </p>
                                     )}
                                   </div>
 
-                                  <span className="text-gray-500 font-light text-sm whitespace-nowrap">
+                                  <span className="text-brushed-gold/70 font-light text-base md:text-lg whitespace-nowrap">
                                     {item.price}
                                   </span>
                                 </div>
@@ -232,16 +162,17 @@ const Services = () => {
           })}
         </div>
 
-        {/* Booking CTA */}
-        <AnimatedSection className="mt-24 text-center">
+        {/* CTA */}
+        <AnimatedSection className="mt-20 text-center">
           <Button
             size="large"
             onClick={() => openFreshaBooking()}
-            className="rounded-none bg-deep-mocha text-white hover:bg-brushed-gold px-16 py-4 tracking-[0.2em] uppercase text-sm w-full md:w-auto shadow-none transition-all duration-500"
+            className="rounded-none border-2 border-brushed-gold bg-transparent text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-16 py-4 tracking-[0.2em] uppercase text-sm w-full md:w-auto shadow-none transition-all duration-500"
           >
             BOOK NOW
           </Button>
-          <p className="mt-6 text-xs text-gray-400 tracking-widest uppercase">
+
+          <p className="mt-6 text-xs text-brushed-gold/40 tracking-widest uppercase">
             Appointments subject to availability
           </p>
         </AnimatedSection>
