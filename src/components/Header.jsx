@@ -44,7 +44,7 @@ const Header = () => {
                     <Link to="/" className="group flex-shrink-0">
                         <motion.div
                             whileHover={{ scale: 1.05 }}
-                            className={`transition-all duration-500 ${isScrolled ? 'h-16' : 'h-24'}`}
+                            className={`transition-all duration-500 ${isScrolled ? 'h-40' : 'h-60'}`}
                         >
                             <img
                                 src={logo}

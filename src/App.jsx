@@ -26,7 +26,7 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <WhatsAppButton/>
         <Header />
-        <main className="flex-grow pt-30">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

@@ -315,7 +315,7 @@ const Home = () => {
             </section>
 
             {/* Minimal Why Choose Section */}
-            <section className="py-24 px-6 bg-brown-bg/80">
+            <section className="py-24 px-6 bg-[#8D6E63]">
                 <div className="container-custom max-w-5xl">
                     <AnimatedSection className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold">
@@ -338,6 +338,59 @@ const Home = () => {
                                         {item.title}
                                     </h3>
                                     <p className="text-brushed-gold/70">{item.desc}</p>
+                                </div>
+                            </AnimatedSection>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Team Section */}
+            <section className="py-24 px-6 bg-brown-bg">
+                <div className="container-custom">
+                    <AnimatedSection className="text-center mb-16">
+                        <h2 className="text-sm tracking-[0.2em] font-light text-brushed-gold/70 uppercase mb-4">
+                            EXPERTISE
+                        </h2>
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-brushed-gold">
+                            Meet Our Team
+                        </h2>
+                    </AnimatedSection>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                        {[
+                            {
+                                name: 'Sarah Vance',
+                                role: 'Senior Stylist',
+                                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80'
+                            },
+                            {
+                                name: 'Elena Brookes',
+                                role: 'Master Colorist',
+                                image: 'https://res.cloudinary.com/dxq0nrirt/image/upload/v1769772665/2149478921_lb5gv0.jpg'
+                            },
+                            {
+                                name: 'Maya Chen',
+                                role: 'Nail Artist',
+                                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80'
+                            }
+                        ].map((member, index) => (
+                            <AnimatedSection key={index} delay={index * 0.2}>
+                                <div className="group text-center">
+                                    <div className="relative mb-6 overflow-hidden aspect-[3/4] border border-brushed-gold/30">
+                                        <img
+                                            src={member.image}
+                                            alt={member.name}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                                        />
+                                        <div className="absolute inset-0 bg-brown-bg/20 group-hover:bg-transparent transition-colors duration-500" />
+                                    </div>
+                                    <h3 className="text-2xl font-serif text-brushed-gold mb-1">
+                                        {member.name}
+                                    </h3>
+                                    <p className="text-xs tracking-[0.2em] uppercase text-brushed-gold/70 font-medium">
+                                        {member.role}
+                                    </p>
                                 </div>
                             </AnimatedSection>
                         ))}
