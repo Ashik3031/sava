@@ -66,20 +66,23 @@ const Home = () => {
 
   const featuredServices = [...nailsServices.slice(0, 2), ...lashesServices.slice(0, 2)];
 
-  return (
-    <div className="min-h-screen bg-brown-bg">
-      {/* HERO */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60">
-            <source
-              src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769770329/2471063_Inside_Lower_Antelope_Canyon_1920x1080_oue3dq.mov"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 bg-brown-bg/40" />
-        </div>
+    return (
+        <div className="min-h-screen bg-brown-bg">
+            {/* Hero Section with Background Video */}
+            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+                {/* Background Video */}
+                <div className="absolute inset-0 z-0">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover opacity-60"
+                    >
+                        <source src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769779541/wmremove-transformed_fd6zz1.mp4" />
+                    </video>
+                    <div className="absolute inset-0 bg-brown-bg/40" />
+                </div>
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 min-h-screen flex items-center">
