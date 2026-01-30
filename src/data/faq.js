@@ -1,7 +1,7 @@
 export const faqs = [
     {
         question: 'How do I book an appointment?',
-        answer: 'You can book your appointment easily through our Fresha booking system by clicking any "Book Now" button on our website, or by calling us directly at +971 XX XXX XXXX.',
+        answer: 'You can book your appointment easily through our Fresha booking system by clicking any "Book Now" button on our website, or by calling us directly at +971 56 787 0072.',
     },
     {
         question: 'What is your cancellation policy?',
