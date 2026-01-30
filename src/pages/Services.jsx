@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Button from '../components/Button';
-import AnimatedSection from '../components/AnimatedSection';
-import { serviceCategories } from '../data/services';
-import { openFreshaBooking } from '../utils/freshaIntegration';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import AnimatedSection from "../components/AnimatedSection";
+import Button from "../components/Button";
+import { serviceCategories } from "../data/services";
+import { openFreshaBooking } from "../utils/freshaIntegration";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 const Services = () => {
-    // Scroll to top on mount
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+  const [openCategory, setOpenCategory] = useState(null);
 
     return (
         <div className="min-h-screen bg-brown-bg pt-32 pb-20">
@@ -114,7 +112,142 @@ const Services = () => {
                 </AnimatedSection>
             </div>
         </div>
-    );
+      </section>
+
+      {/* Accordion categories */}
+      <div className="container-custom max-w-3xl px-6">
+        <div className="space-y-10">
+          {serviceCategories.map((category, index) => {
+            const isOpen = openCategory === category.id;
+
+            return (
+              <AnimatedSection key={category.id} delay={index * 0.08}>
+                <div className="border-t border-black/10">
+                  {/* CATEGORY HEADER ROW */}
+                  <button
+                    onClick={() => toggleCategory(category.id)}
+                    className="w-full flex items-center justify-between py-6 text-left group"
+                  >
+                    <div>
+                     <h2 className="text-lg md:text-xl tracking-[0.3em] uppercase font-light text-deep-mocha">
+
+                        {category.title}
+                      </h2>
+                      {/* optional small description under title */}
+                      {category.description && (
+                        <p className="mt-2 text-xs text-gray-400 font-light max-w-2xl leading-relaxed">
+                          {category.description}
+                        </p>
+                      )}
+                    </div>
+
+                    <span
+                      className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center
+                      group-hover:border-brushed-gold group-hover:text-brushed-gold transition-all"
+                    >
+                      {isOpen ? <FiMinus /> : <FiPlus />}
+                    </span>
+                  </button>
+
+                  {/* CATEGORY BODY */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-8">
+                          {/* NESTED subtitles (Brows/Lashes etc.) */}
+                          {category.items[0]?.subtitle ? (
+                            <div className="space-y-10 pt-2">
+                              {category.items.map((sub, subIndex) => (
+                                <div key={subIndex}>
+                                  <h3 className="text-sm tracking-widest uppercase text-gray-500 mb-4">
+                                    {sub.subtitle}
+                                  </h3>
+
+                                  <div className="space-y-4">
+                                    {sub.items.map((item, i) => (
+                                      <div
+                                        key={i}
+                                        className="flex justify-between items-start border-b border-black/5 pb-3"
+                                      >
+                                        <div className="pr-6">
+                                          <p className="text-gray-800 font-light">
+                                            {item.name}
+                                          </p>
+                                          {item.description && (
+                                            <p className="mt-1 text-xs text-gray-400 font-light max-w-md leading-relaxed">
+                                              {item.description}
+                                            </p>
+                                          )}
+                                        </div>
+
+                                        <span className="text-gray-500 font-light text-sm whitespace-nowrap">
+                                          {item.price}
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            /* NORMAL items */
+                            <div className="space-y-4 pt-2">
+                              {category.items.map((item, i) => (
+                                <div
+                                  key={i}
+                                  className="flex justify-between items-start border-b border-black/5 pb-3"
+                                >
+                                  <div className="pr-6">
+                                   <p className="text-base md:text-lg text-gray-800 font-light">
+
+                                      {item.name}
+                                    </p>
+                                    {item.description && (
+                                      <p className="mt-1 text-xs text-gray-400 font-light max-w-md leading-relaxed">
+                                        {item.description}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  <span className="text-gray-500 font-light text-sm whitespace-nowrap">
+                                    {item.price}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </AnimatedSection>
+            );
+          })}
+        </div>
+
+        {/* Booking CTA */}
+        <AnimatedSection className="mt-24 text-center">
+          <Button
+            size="large"
+            onClick={() => openFreshaBooking()}
+            className="rounded-none bg-deep-mocha text-white hover:bg-brushed-gold px-16 py-4 tracking-[0.2em] uppercase text-sm w-full md:w-auto shadow-none transition-all duration-500"
+          >
+            BOOK NOW
+          </Button>
+          <p className="mt-6 text-xs text-gray-400 tracking-widest uppercase">
+            Appointments subject to availability
+          </p>
+        </AnimatedSection>
+      </div>
+    </div>
+  );
 };
 
 export default Services;

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -23,6 +24,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
+        <WhatsAppButton/>
         <Header />
         <main className="flex-grow pt-30">
           <Routes>

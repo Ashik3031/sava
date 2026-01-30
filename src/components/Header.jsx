@@ -90,7 +90,7 @@ const Header = () => {
                         <img
                             src={logo}
                             alt="SAVÁ"
-                            className="h-14 w-auto object-contain"
+                            className="h-full w-auto object-contain"
                         />
                     </Link>
 
