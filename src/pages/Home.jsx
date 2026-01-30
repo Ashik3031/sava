@@ -83,7 +83,7 @@ const Home = () => {
                         playsInline
                         className="w-full h-full object-cover opacity-60"
                     >
-                        <source src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769770329/2471063_Inside_Lower_Antelope_Canyon_1920x1080_oue3dq.mov" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769778416/PixVerse_V5.6_Image_Text_360P_Animate_this_ult_evdcma.mp4" />
                     </video>
                     <div className="absolute inset-0 bg-brown-bg/40" />
                 </div>
@@ -200,7 +200,7 @@ const Home = () => {
                         </h2>
                     </AnimatedSection>
 
-                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Service 1: Nails */}
                         <AnimatedSection delay={0.1}>
                             <motion.div
@@ -274,32 +274,32 @@ const Home = () => {
                         </AnimatedSection>
 
                         {/* Service 4: Hair (Coming Soon) */}
-<AnimatedSection delay={0.4}>
-  <motion.div
-    className="group cursor-pointer"
-    whileHover={{ y: -5 }}
-    transition={{ duration: 0.3 }}
-  >
-    <div className="aspect-[4/5] overflow-hidden mb-6 bg-soft-ivory relative">
-      <img
-        src="/hair.jpg"
-        alt="Hair Services"
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[20%]"
-      />
-     <div className="absolute inset-0 flex items-center justify-center bg-brown-bg/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <AnimatedSection delay={0.4}>
+                            <motion.div
+                                className="group cursor-pointer"
+                                whileHover={{ y: -5 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <div className="aspect-[4/5] overflow-hidden mb-6 bg-soft-ivory relative">
+                                    <img
+                                        src="/hair.jpg"
+                                        alt="Hair Services"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[20%]"
+                                    />
+                                    <div className="absolute inset-0 flex items-center justify-center bg-brown-bg/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <span className="bg-brushed-gold/90 backdrop-blur px-4 py-1 text-xs tracking-widest uppercase text-brown-bg">Coming Soon</span>
                                     </div>
-    </div>
+                                </div>
 
-    <h3 className="text-2xl font-serif italic text-brushed-gold mb-3 group-hover:text-brushed-gold/80 transition-colors">
-      Hair
-    </h3>
+                                <h3 className="text-2xl font-serif italic text-brushed-gold mb-3 group-hover:text-brushed-gold/80 transition-colors">
+                                    Hair
+                                </h3>
 
-    <p className="text-sm text-brushed-gold/70 leading-relaxed font-light">
-      Signature hair rituals are on the way — from nourishing treatments to elegant styling, designed to complement your SAVÁ experience.
-    </p>
-  </motion.div>
-</AnimatedSection>
+                                <p className="text-sm text-brushed-gold/70 leading-relaxed font-light">
+                                    Signature hair rituals are on the way — from nourishing treatments to elegant styling, designed to complement your SAVÁ experience.
+                                </p>
+                            </motion.div>
+                        </AnimatedSection>
 
                     </div>
 
