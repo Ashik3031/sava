@@ -83,7 +83,7 @@ const Home = () => {
                         playsInline
                         className="w-full h-full object-cover opacity-60"
                     >
-                        <source src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769778416/PixVerse_V5.6_Image_Text_360P_Animate_this_ult_evdcma.mp4" />
+                        <source src="https://res.cloudinary.com/dxq0nrirt/video/upload/v1769779541/wmremove-transformed_fd6zz1.mp4" />
                     </video>
                     <div className="absolute inset-0 bg-brown-bg/40" />
                 </div>
