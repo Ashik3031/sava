@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import AnimatedSection from '../components/AnimatedSection';
+import { serviceCategories } from '../data/services';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
+        service: '',
         message: '',
     });
 
@@ -20,10 +19,14 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
-        alert('Thank you for your message! We will get back to you soon.');
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        const phoneNumber = '971567870072';
+        const serviceText = formData.service ? `I am interested in ${formData.service}. ` : '';
+        const whatsappMessage = `Hello SAVÁ, ${serviceText}My question: ${formData.message}`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, '_blank');
+        setFormData({ service: '', message: '' });
     };
 
     return (
@@ -41,46 +44,41 @@ const Contact = () => {
                 <AnimatedSection delay={0.1}>
                     <div className="max-w-2xl mx-auto">
                         <form onSubmit={handleSubmit} className="space-y-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full bg-transparent border border-brushed-gold/40 rounded-md px-4 py-3 placeholder-brushed-gold/50 text-brushed-gold focus:outline-none focus:border-brushed-gold transition-colors"
-                                    />
-                                </div>
-                                <div>
-                                    <input
-                                        type="email"
-                                        placeholder="Email *"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full bg-transparent border border-brushed-gold/40 rounded-md px-4 py-3 placeholder-brushed-gold/50 text-brushed-gold focus:outline-none focus:border-brushed-gold transition-colors"
-                                    />
-                                </div>
-                            </div>
-
                             <div>
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    placeholder="Phone number"
-                                    value={formData.phone}
+                                <select
+                                    name="service"
+                                    value={formData.service}
                                     onChange={handleChange}
-                                    className="w-full bg-transparent border border-brushed-gold/40 rounded-md px-4 py-3 placeholder-brushed-gold/50 text-brushed-gold focus:outline-none focus:border-brushed-gold transition-colors"
-                                />
+                                    required
+                                    className="w-full bg-transparent border border-brushed-gold/40 rounded-md px-4 py-3 text-brushed-gold focus:outline-none focus:border-brushed-gold transition-colors appearance-none cursor-pointer"
+                                >
+                                    <option value="" disabled className="bg-brown-bg text-brushed-gold/50">Select a Service</option>
+                                    {serviceCategories.map((category) => (
+                                        <optgroup key={category.id} label={category.title} className="bg-brown-bg text-brushed-gold font-bold">
+                                            {category.items.map((item, idx) => {
+                                                if (item.subtitle) {
+                                                    return item.items.map((subItem, subIdx) => (
+                                                        <option key={`${idx}-${subIdx}`} value={subItem.name} className="bg-brown-bg text-brushed-gold">
+                                                            {subItem.name}
+                                                        </option>
+                                                    ));
+                                                }
+                                                return (
+                                                    <option key={idx} value={item.name} className="bg-brown-bg text-brushed-gold">
+                                                        {item.name}
+                                                    </option>
+                                                );
+                                            })}
+                                        </optgroup>
+                                    ))}
+                                    <option value="General Query" className="bg-brown-bg text-brushed-gold">General Query</option>
+                                </select>
                             </div>
 
                             <div>
                                 <textarea
                                     name="message"
-                                    placeholder="Comment"
+                                    placeholder="Enter your question or query here..."
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
@@ -92,9 +90,9 @@ const Contact = () => {
                             <div>
                                 <Button
                                     type="submit"
-                                    className="bg-transparent border border-brushed-gold text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-10 py-3 rounded-md text-sm uppercase tracking-widest font-medium transition-all duration-300 w-full md:w-auto"
+                                    className="bg-transparent border border-brushed-gold text-brushed-gold hover:bg-brushed-gold hover:text-brown-bg px-10 py-3 rounded-md text-sm uppercase tracking-widest font-medium transition-all duration-300 w-full md:w-auto flex items-center justify-center gap-2"
                                 >
-                                    Send
+                                    Send to WhatsApp
                                 </Button>
                             </div>
                         </form>
