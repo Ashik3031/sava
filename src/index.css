@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap');
 
 @import "tailwindcss";
 
@@ -7,11 +7,12 @@
   --color-soft-ivory: #F2E9DA;
   --color-brushed-gold: #EFBF04;
   --color-deep-mocha: #4C3A32;
-  --color-brown-bg: #5C4033;
+  --color-brown-bg: #432E25;
   --color-light-brown: #8D6E63;
 
-  --font-family-serif: 'Playfair Display', serif;
-  --font-family-sans: 'Inter', sans-serif;
+  --font-family-serif: 'Alumni Sans Pinstripe', sans-serif;
+  --font-family-sans: 'Exo 2', sans-serif;
+  --font-family-tech: 'Share Tech', sans-serif;
 
   --shadow-soft: 0 4px 20px rgba(76, 58, 50, 0.08);
   --shadow-gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);

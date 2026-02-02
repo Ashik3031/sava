@@ -40,9 +40,8 @@ const Header = () => {
           <Link to="/" className="flex-shrink-0">
             <motion.div
               whileHover={{ scale: 1.04 }}
-              className={`relative overflow-hidden transition-all duration-500 ${
-                isScrolled ? "h-20 w-60" : "h-24 w-72"
-              }`}
+              className={`relative overflow-hidden transition-all duration-500 ${isScrolled ? "h-24 w-72" : "h-32 w-80"
+                }`}
             >
               <img
                 src={logo}
@@ -59,17 +58,15 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-xs tracking-[0.2em] text-brushed-gold hover:text-brushed-gold/70 transition-colors duration-300 font-bold uppercase relative group ${
-                  location.pathname === link.path ? "text-brushed-gold/90" : ""
-                }`}
+                className={`text-xs tracking-[0.2em] text-brushed-gold hover:text-brushed-gold/70 transition-colors duration-300 font-bold uppercase relative group ${location.pathname === link.path ? "text-brushed-gold/90" : ""
+                  }`}
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-1 left-0 w-full h-[1px] bg-brushed-gold origin-left transition-transform duration-300 ${
-                    location.pathname === link.path
+                  className={`absolute -bottom-1 left-0 w-full h-[1px] bg-brushed-gold origin-left transition-transform duration-300 ${location.pathname === link.path
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
-                  }`}
+                    }`}
                 />
               </Link>
             ))}
@@ -101,7 +98,7 @@ const Header = () => {
 
           {/* Bigger centered logo */}
           <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-            <div className="relative h-14 w-48 overflow-hidden">
+            <div className="relative h-20 w-64 overflow-hidden">
               <img
                 src={logo}
                 alt="SAVÁ"
@@ -129,9 +126,8 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`text-lg tracking-widest font-serif font-medium text-brushed-gold uppercase ${
-                      location.pathname === link.path ? "text-brushed-gold/70" : ""
-                    }`}
+                    className={`text-lg tracking-widest font-serif font-medium text-brushed-gold uppercase ${location.pathname === link.path ? "text-brushed-gold/70" : ""
+                      }`}
                   >
                     {link.name}
                   </Link>
