@@ -127,7 +127,7 @@ const Home = () => {
                         </div>
 
                         {/* optional: subtle rotating service text on mobile */}
-                        <div className="mt-10 sm:mt-12 text-brushed-gold/60 text-xs tracking-[0.3em] uppercase">
+                        <div className="mt-10 sm:mt-12 text-soft-ivory/50 text-xs tracking-[0.3em] uppercase">
                             <span className="opacity-70">Now featuring:</span>{" "}
                             <span className="text-brushed-gold/80">{serviceData[currentService].text}</span>
                         </div>
@@ -143,7 +143,7 @@ const Home = () => {
                             ABOUT SAVÁ
                         </h2>
 
-                        <p className="text-xs sm:text-sm md:text-base italic text-brushed-gold/70 tracking-[0.2em] mb-8 sm:mb-10 md:mb-12">
+                        <p className="text-xs sm:text-sm md:text-base italic text-soft-ivory/60 tracking-[0.2em] mb-8 sm:mb-10 md:mb-12">
                             Satisfaction. Serenity. Style.
                         </p>
 
@@ -311,7 +311,7 @@ const Home = () => {
             </section>
 
             {/* WHY SAVÁ */}
-            <section className="py-16 sm:py-20 md:py-24 px-6 bg-[#8D6E63]">
+            <section className="py-16 sm:py-20 md:py-24 px-6 bg-soft-ivory">
                 <div className="container-custom max-w-5xl">
                     <AnimatedSection className="text-center mb-10 sm:mb-12 md:mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brushed-gold">Why SAVÁ</h2>

@@ -14,7 +14,7 @@ const ServiceCard = ({
     return (
         <motion.div
             whileHover={{ y: -8 }}
-            className="bg-brown-bg/80 backdrop-blur-sm rounded-lg overflow-hidden border border-brushed-gold/20 transition-all duration-300 hover:border-brushed-gold/50 hover:shadow-gold-glow group"
+            className="bg-brown-bg/80 backdrop-blur-sm rounded-lg overflow-hidden border border-brushed-gold/10 transition-all duration-500 hover:border-brushed-gold/40 hover:shadow-[0_0_20px_rgba(220,205,225,0.15)] group"
         >
             {/* Image */}
             <div className="relative h-64 overflow-hidden">
@@ -37,7 +37,7 @@ const ServiceCard = ({
                 <h3 className="text-2xl font-serif font-semibold text-brushed-gold mb-3 group-hover:text-white transition-colors">
                     {title}
                 </h3>
-                <p className="text-brushed-gold/70 mb-4 leading-relaxed text-sm font-light">
+                <p className="text-soft-ivory/70 mb-4 leading-relaxed text-sm font-light">
                     {description}
                 </p>
 

@@ -63,9 +63,9 @@ const Header = () => {
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-1 left-0 w-full h-[1px] bg-brushed-gold origin-left transition-transform duration-300 ${location.pathname === link.path
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
+                  className={`absolute -bottom-1 left-0 w-full h-[1px] bg-soft-ivory origin-left transition-transform duration-300 ${location.pathname === link.path
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
                     }`}
                 />
               </Link>
@@ -76,7 +76,7 @@ const Header = () => {
               className="text-xs tracking-[0.2em] text-brushed-gold hover:text-brushed-gold/70 transition-colors duration-300 font-bold uppercase relative group"
             >
               Book Now
-              <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-brushed-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-soft-ivory origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </button>
           </div>
         </div>
@@ -119,7 +119,7 @@ const Header = () => {
               initial={{ opacity: 0, y: -14 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -14 }}
-              className="md:hidden absolute top-full left-0 right-0 bg-brown-bg/60 backdrop-blur-md border-t border-brushed-gold/20"
+              className="md:hidden absolute top-full left-0 right-0 bg-deep-mocha/95 backdrop-blur-md border-t border-soft-ivory/10"
             >
               <div className="py-10 px-6 flex flex-col items-center space-y-7">
                 {navLinks.map((link) => (
