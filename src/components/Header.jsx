@@ -28,7 +28,7 @@ const Header = () => {
   ];
 
   const handleBooking = () => {
-    window.location.href = "https://www.fresha.com";
+    window.open("https://www.fresha.com/book-now/ymichshan-gmail-com-wbb0xaa2/all-offer?share=true&pId=2713941", "_blank", "noopener,noreferrer");
   };
 
   return (
