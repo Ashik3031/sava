@@ -117,9 +117,17 @@ const Services = () => {
                                           )}
                                         </div>
 
-                                        <span className="text-brushed-gold/70 font-light text-sm sm:text-base md:text-lg whitespace-nowrap pt-[2px]">
-                                          {item.price}
-                                        </span>
+                                       <div className="shrink-0 flex items-start gap-6 sm:gap-8 md:gap-10 whitespace-nowrap pt-[2px]">
+  <span className="text-brushed-gold/70 font-light text-sm sm:text-base md:text-lg min-w-[90px] text-right">
+    {item.price}
+  </span>
+
+  {item.duration && (
+    <span className="text-brushed-gold/55 font-light text-sm sm:text-base md:text-lg min-w-[70px] text-right">
+      {item.duration}
+    </span>
+  )}
+</div>
                                       </div>
                                     ))}
                                   </div>
@@ -146,9 +154,17 @@ const Services = () => {
                                     )}
                                   </div>
 
-                                  <span className="text-brushed-gold/70 font-light text-sm sm:text-base md:text-lg whitespace-nowrap pt-[2px]">
-                                    {item.price}
-                                  </span>
+                                 <div className="shrink-0 flex items-start gap-6 sm:gap-8 md:gap-10 whitespace-nowrap pt-[2px]">
+  <span className="text-brushed-gold/70 font-light text-sm sm:text-base md:text-lg min-w-[90px] text-right">
+    {item.price}
+  </span>
+
+  {item.duration && (
+    <span className="text-brushed-gold/55 font-light text-sm sm:text-base md:text-lg min-w-[70px] text-right">
+      {item.duration}
+    </span>
+  )}
+</div>
                                 </div>
                               ))}
                             </div>
